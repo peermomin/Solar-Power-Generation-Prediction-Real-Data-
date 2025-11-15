@@ -64,11 +64,39 @@ Saved the trained model for future use:
 ```python
 joblib.dump(models["Random Forest"], "./Models/solar_rf_model.pkl")
 ```
-## 🚀 Next Steps
-- Evaluate model on unseen test data.  
-- Create a prediction API or interactive dashboard.  
-- Visualize predicted vs actual DC Power.  
-- Optionally integrate with live weather API for real-time solar power prediction.
+## 🧪 Model Testing on Unseen Data
+
+A separate notebook was used to:
+
+- Load the saved model
+- Evaluate it on the unseen test split
+- Visualize Actual vs Predicted DC Power
+
+The model maintained very high accuracy (**R² ≈ 0.989**), confirming strong generalization.
+
+---
+
+## 🚀 Streamlit App Deployment
+
+A complete Streamlit web app was created to allow user interaction:
+
+Users can input:
+
+- Ambient Temperature
+- Module Temperature
+- Irradiation
+- Hour of Day
+- Month
+
+And receive:
+
+➡️ Predicted DC Power Output (in Watts)
+
+The app loads the trained model:
+
+```python
+model = joblib.load("./Models/solar_rf_model.pkl")
+```
 
 ---
 
